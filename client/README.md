@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### 🟢 Theme Style Summary:
 
-## Getting Started
+#### ✅ **Base Hue (Color Family)**:
 
-First, run the development server:
+- **Primary Hue**: `HSL(220-225)` → Blueish-violet tones (classy, techy, modern)
+- **Accent Colors**: Warm contrast — coral, teal, orange, yellow, purple for charts
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#### 💡 **Light Mode (Clean + Minimal)**:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Backgrounds**: Near white (`hsl(220, 20%, 98%)`)
+- **Text / Foreground**: Deep bluish-gray (`hsl(222, 30%, 12%)`)
+- **Sidebar**: Very light with soft shadows, not too distracting
+- **Accent Areas**: Muted blue-grays
+- **Charts**: Vibrant but not neon (coral, teal, navy, etc.)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### 🌙 **Dark Mode (Elegant + Legible)**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Backgrounds**: `hsl(222, 47%, 11%)` — deep indigo-black
+- **Text / Foreground**: `hsl(0, 0%, 98%)` — clean white
+- **Sidebar / Accent**: Muted purples & dark blues
+- **Charts**: Pop with color but still match overall vibe (bright cyan, magenta, etc.)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### 🔵 Inspiration:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Think: **Tailwind Gray + Indigo**, mixed with subtle warm tones for charts
+- **Not too saturated**, avoids eye strain, gives a **professional + calm** aesthetic
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### 🧠 Consistency Tips:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To maintain a consistent look throughout your app:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Use `var(--primary)`, `var(--accent)` etc. instead of raw color values
+2. Avoid setting background colors with direct `#fff` or `black`, stick to:
+   - `background: hsl(var(--background))`
+   - `color: hsl(var(--foreground))`
+3. Component library (like `shadcn/ui`) will automatically pick from these if configured properly.

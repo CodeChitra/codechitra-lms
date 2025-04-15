@@ -35,7 +35,7 @@ input[type="color"] {
   padding: 0;
 }
 
-@layer base {
+/* @layer base {
   :root {
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -118,6 +118,97 @@ input[type="color"] {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+} */
+
+/*! ---------------------------------------CUSTOM CSS VARIABLES--------------------------------------- */
+@layer base {
+  :root {
+    --sidebar-background: 220 20% 98%;
+    --sidebar-foreground: 220 15% 20%;
+    --sidebar-primary: 222 47% 11%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 220 20% 92%;
+    --sidebar-accent-foreground: 222 30% 15%;
+    --sidebar-border: 220 13% 84%;
+    --sidebar-ring: 220 100% 50%;
+
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --primary: 222 47% 11%;
+    --primary-foreground: 0 0% 98%;
+
+    --muted: 222 15% 93%;
+    --muted-foreground: 222 10% 45%;
+
+    --accent: 222 20% 92%;
+    --accent-foreground: 222 30% 15%;
+
+    --border: 222 15% 85%;
+    --ring: 222 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 30% 12%;
+
+    --secondary: 222 15% 95%;
+    --secondary-foreground: 222 30% 15%;
+
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --input: 222 15% 85%;
+
+    --chart-1: 20 85% 55%; /* Coral */
+    --chart-2: 160 65% 40%; /* Teal */
+    --chart-3: 210 50% 30%; /* Navy */
+    --chart-4: 45 100% 60%; /* Warm Yellow */
+    --chart-5: 15 100% 60%; /* Orange */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 222 20% 92%;
+    --sidebar-primary: 270 85% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 10% 18%;
+    --sidebar-accent-foreground: 222 20% 92%;
+    --sidebar-border: 222 10% 18%;
+    --sidebar-ring: 220 100% 50%;
+
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 222 47% 11%;
+
+    --muted: 222 10% 18%;
+    --muted-foreground: 222 20% 70%;
+
+    --accent: 222 10% 18%;
+    --accent-foreground: 0 0% 98%;
+
+    --border: 222 10% 18%;
+    --ring: 222 20% 75%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 0 0% 98%;
+
+    --secondary: 222 10% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --destructive: 0 70% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --input: 222 10% 18%;
+
+    --chart-1: 200 80% 60%;
+    --chart-2: 140 65% 50%;
+    --chart-3: 30 90% 60%;
+    --chart-4: 270 70% 65%;
+    --chart-5: 340 80% 60%;
+  }
 }
 
 .bg-sidebar {
@@ -144,7 +235,7 @@ input[type="color"] {
 
 /* Search Page */
 .search {
-  @apply flex flex-col bg-background text-foreground h-full mx-auto w-3/4;
+  @apply flex flex-col  h-full mx-auto w-3/4;
 }
 
 .search__title {
@@ -248,11 +339,11 @@ input[type="color"] {
 }
 
 .landing__hero {
-  @apply flex justify-between items-center mt-12 h-[500px] rounded-lg bg-customgreys-secondarybg;
+  @apply flex justify-between items-center mt-12 h-[500px] rounded-lg bg-customgreys-secondarybg relative;
 }
 
 .landing__hero-content {
-  @apply basis-1/2 px-16 mx-auto;
+  @apply basis-1/2 px-16 mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-black px-4 py-4 bg-opacity-70 rounded-lg;
 }
 
 .landing__title {
@@ -272,7 +363,7 @@ input[type="color"] {
 }
 
 .landing__hero-images {
-  @apply basis-1/2 h-full relative overflow-hidden rounded-r-lg;
+  @apply flex-1 h-full relative overflow-hidden rounded-r-lg;
 }
 
 .landing__hero-image {
@@ -317,7 +408,7 @@ input[type="color"] {
 }
 
 .landing-skeleton__hero-content {
-  @apply basis-1/2 px-16 mx-auto;
+  @apply basis-1/2 px-16 mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-black px-4 py-4 bg-opacity-15 rounded-lg;
 }
 
 .landing-skeleton__title {
@@ -337,7 +428,7 @@ input[type="color"] {
 }
 
 .landing-skeleton__hero-image {
-  @apply basis-1/2 h-full rounded-r-lg;
+  @apply flex-1 h-full relative overflow-hidden rounded-r-lg;
 }
 
 .landing-skeleton__featured {
@@ -1550,8 +1641,6 @@ input[type="color"] {
 .dashboard-navbar__sidebar-trigger {
   @apply text-customgreys-dirtyGrey hover:text-white-50 transition-colors;
 }
-
-
 
 @layer base {
   * {

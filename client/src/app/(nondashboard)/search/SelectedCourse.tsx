@@ -4,7 +4,6 @@ import { formatPrice } from "@/lib/utils";
 import React from "react";
 
 const SelectedCourse = ({ course, handleEnrollNow }: SelectedCourseProps) => {
-  console.log(course);
   return (
     <div className="selected-course">
       <div>

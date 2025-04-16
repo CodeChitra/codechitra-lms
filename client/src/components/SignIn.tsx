@@ -7,7 +7,7 @@ function SignInComponent() {
   const searchParams = useSearchParams();
   const { user } = useUser();
 
-  const isCheckOutPage = searchParams.get("showSignup") !== null;
+  const isCheckOutPage = searchParams.get("showSignUp") !== null;
 
   const courseId = searchParams.get("id");
 
@@ -16,10 +16,9 @@ function SignInComponent() {
     : `/signup`;
 
   const userType = user?.publicMetadata?.userType as string;
-  console.log("User Type: ", userType);
   const getRedirectUrl = () => {
     if (isCheckOutPage) {
-      return `/checkout?step=2&id=${courseId}&showSignUp=false`;
+      return `/checkout?step=2&id=${courseId}&showSignUp=true`;
     }
 
     if (userType === "teacher") {

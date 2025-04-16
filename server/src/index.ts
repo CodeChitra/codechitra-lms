@@ -6,12 +6,14 @@ import morgan from "morgan";
 import cors from "cors";
 import bodyParser from "body-parser";
 import courseRoutes from "./routes/course.route";
+import clerkRoutes from "./routes/clerk.route";
+import transactionRoutes from "./routes/transaction.routes";
 import {
   clerkMiddleware,
   createClerkClient,
   requireAuth,
 } from "@clerk/express";
-import clerkRoutes from "./routes/clerk.route";
+
 import { create } from "domain";
 // Route Imports
 
@@ -44,6 +46,7 @@ app.get("/", (req, res) => {
 
 app.use("/courses", courseRoutes);
 app.use("/users/clerk", requireAuth(), clerkRoutes);
+app.use("/transactions", requireAuth(), transactionRoutes);
 // Start Server
 
 const PORT = process.env.port || 3000;

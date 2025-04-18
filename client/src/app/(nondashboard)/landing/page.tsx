@@ -47,7 +47,7 @@ function Landing() {
   const { data: courses, isLoading } = useGetCoursesQuery({});
 
   const handleCourseClick = (courseId: string) => {
-    router.push(`/search?id=${courseId}`);
+    router.push(`/search?id=${courseId}`, { scroll: false });
   };
 
   if (isLoading) {

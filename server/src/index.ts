@@ -9,6 +9,8 @@ import courseRoutes from "./routes/course.route";
 import clerkRoutes from "./routes/clerk.route";
 import transactionRoutes from "./routes/transaction.routes";
 import userCourseProgressRoutes from "./routes/user-course-progress.routes";
+import serverless from "serverless-http";
+import seed from "./seed/seedDynamodb";
 import {
   clerkMiddleware,
   createClerkClient,
@@ -52,6 +54,24 @@ app.use("/users/course-progress", requireAuth(), userCourseProgressRoutes);
 // Start Server
 
 const PORT = process.env.port || 3000;
-app.listen(PORT, () => {
-  console.log("Server started on port: ", PORT);
-});
+
+if (!isProduction) {
+  app.listen(PORT, () => {
+    console.log("Server started on port: ", PORT);
+  });
+}
+
+// aws production enviroment serverless setupp
+
+const serverlessApp = serverless(app);
+export const handler = async (event: any, context: any) => {
+  if (event.action === "seed") {
+    await seed();
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "Data seeded successfully" }),
+    };
+  } else {
+    return serverlessApp(event, context);
+  }
+};

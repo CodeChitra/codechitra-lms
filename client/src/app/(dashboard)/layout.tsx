@@ -8,7 +8,7 @@ import { useUser } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ChaptersSidebar from "./user/courses/[courseId]/chapters/[chapterId]/ChapterSideBar";
-
+import React from "react";
 export default function DashboardLayout({
   children,
 }: {

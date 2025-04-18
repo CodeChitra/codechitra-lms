@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { useSidebar } from "@/components/ui/sidebar";
 import Loading from "@/components/Loading";
 import { useCourseProgressData } from "@/hooks/useCourseProgressData";
-
+import React from "react";
 const ChaptersSidebar = () => {
   const router = useRouter();
   const { setOpen } = useSidebar();

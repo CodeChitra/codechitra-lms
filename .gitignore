@@ -1,44 +1,19 @@
-# Root-level ignores
+**/node_modules/
+**/dist/
+
 .env
-.env.local
-.env.*.local
-node_modules/
-dist/
-.DS_Store
-
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# OS/system files
-Thumbs.db
-.vscode/
-.idea/
-
-# Client-side (Next.js)
-client/.next/
-client/out/
-client/node_modules/
-client/.env
 client/.env.local
-client/public/sw.js
-client/public/workbox-*.js
-
-# Server-side (Express)
-server/node_modules/
-server/dist/
+client/.env.development
+client/.env.production
 server/.env
-server/.env.local
 
-# Clerk cache or debug files (if any)
-.clerk*
+client/.next/
 
-# Optional: Ignore coverage reports
-coverage/
+.DS_Store
+Thumbs.db
 
-# Optional: ignore build cache
-client/.turbo/
-client/.vercel/
+.vscode/
+
+server/shared-local-instance.db
+server/dynamodb-local-metadata.json
+shared-local-instance.db

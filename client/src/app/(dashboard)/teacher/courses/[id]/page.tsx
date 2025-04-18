@@ -59,7 +59,7 @@ const CourseEditor = () => {
       });
       dispatch(setSections(course.sections || []));
     }
-  }, [course, methods]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [course, methods]);
 
   const onSubmit = async (data: CourseFormData) => {
     console.log("Form data:", data);

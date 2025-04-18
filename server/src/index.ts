@@ -8,6 +8,7 @@ import bodyParser from "body-parser";
 import courseRoutes from "./routes/course.route";
 import clerkRoutes from "./routes/clerk.route";
 import transactionRoutes from "./routes/transaction.routes";
+import userCourseProgressRoutes from "./routes/user-course-progress.routes";
 import {
   clerkMiddleware,
   createClerkClient,
@@ -47,6 +48,7 @@ app.get("/", (req, res) => {
 app.use("/courses", courseRoutes);
 app.use("/users/clerk", requireAuth(), clerkRoutes);
 app.use("/transactions", requireAuth(), transactionRoutes);
+app.use("/users/course-progress", requireAuth(), userCourseProgressRoutes);
 // Start Server
 
 const PORT = process.env.port || 3000;

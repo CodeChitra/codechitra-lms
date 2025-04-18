@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { DM_Sans } from "next/font/google";
 import Providers from "./providers";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
-const dmSans = DM_Sans({
+import { Suspense } from "react";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-dm-sans",
 });
 export const metadata: Metadata = {
   title: "Codechitra - Your Coding University!",
@@ -20,15 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <ClerkProvider>
-        <Providers>
-          <body className={`${dmSans.className}`}>
-            <div className="root-layout">{children}</div>
-            <Toaster richColors position="top-center" />
-          </body>
-        </Providers>
-      </ClerkProvider>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${inter.className}`}>
+          <Providers>
+            <Suspense fallback={null}>
+              <div className="root-layout">{children}</div>
+            </Suspense>
+            <Toaster richColors closeButton />
+          </Providers>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

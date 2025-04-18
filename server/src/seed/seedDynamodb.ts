@@ -9,7 +9,7 @@ import dynamoose from "dynamoose";
 import pluralize from "pluralize";
 import Transaction from "../models/transaction.model";
 import Course from "../models/course.model";
-import UserCourseProgress from "../models/userCourseProgress.model";
+import UserCourseProgress from "../models/user-course-progress.model";
 import dotenv from "dotenv";
 
 dotenv.config();

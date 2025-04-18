@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import { Request, Response } from "express";
 import Course from "../models/course.model";
 import Transaction from "../models/transaction.model";
-import UserCourseProgress from "../models/userCourseProgress.model";
+import UserCourseProgress from "../models/user-course-progress.model";
 
 dotenv.config();
 

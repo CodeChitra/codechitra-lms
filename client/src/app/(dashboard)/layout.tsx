@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useUser } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-// import ChaptersSidebar from "./user/courses/[courseId]/ChaptersSidebar";
+import ChaptersSidebar from "./user/courses/[courseId]/chapters/[chapterId]/ChapterSideBar";
 
 export default function DashboardLayout({
   children,
@@ -20,7 +20,6 @@ export default function DashboardLayout({
   const isCoursePage = /^\/user\/courses\/[^\/]+(?:\/chapters\/[^\/]+)?$/.test(
     pathname
   );
-
   useEffect(() => {
     if (isCoursePage) {
       const match = pathname.match(/\/user\/courses\/([^\/]+)/);
@@ -38,7 +37,7 @@ export default function DashboardLayout({
       <div className="dashboard">
         <AppSidebar />
         <div className="dashboard__content">
-          {/* {courseId && <ChaptersSidebar />} */}
+          {courseId && <ChaptersSidebar />}
           <div
             className={cn(
               "dashboard__main",

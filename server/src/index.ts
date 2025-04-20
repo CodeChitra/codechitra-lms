@@ -60,7 +60,15 @@ if (!isProduction) {
 
 // aws production enviroment serverless setupp
 
-const serverlessApp = serverless(app);
+const serverlessApp = serverless(app, {
+  request: function (request: any, event: any, context: any) {
+    // Fixes the Buffer issue
+    if (event.isBase64Encoded && typeof event.body === "string") {
+      const buff = Buffer.from(event.body, "base64");
+      event.body = buff.toString();
+    }
+  },
+});
 export const handler = async (event: any, context: any) => {
   if (event.action === "seed") {
     await seed();

@@ -44,7 +44,7 @@ export const createCourse = async (
   res: Response
 ): Promise<void> => {
   try {
-    console.log("REQUEST BODY: ", req.body);
+    console.log("[CREATE_COURSE]: ", req.body);
     const { teacherId, teacherName } = req.body;
 
     if (!teacherId || !teacherName) {

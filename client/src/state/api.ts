@@ -81,6 +81,9 @@ export const api = createApi({
         url: `courses`,
         method: "POST",
         body,
+        headers: {
+          "Content-Type": "application/json",
+        },
       }),
       invalidatesTags: ["Courses"],
     }),

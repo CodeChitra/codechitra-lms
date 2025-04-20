@@ -16,8 +16,6 @@ import {
   createClerkClient,
   requireAuth,
 } from "@clerk/express";
-
-import { create } from "domain";
 // Route Imports
 
 // Configurations
@@ -44,7 +42,7 @@ app.use(clerkMiddleware());
 // Routes
 
 app.get("/", (req, res) => {
-  res.json({ message: "Hello World!" });
+  res.json({ message: "Namaskar duniya!" });
 });
 
 app.use("/courses", courseRoutes);

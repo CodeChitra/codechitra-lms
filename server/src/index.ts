@@ -69,6 +69,7 @@ export const handler = async (event: any, context: any) => {
       body: JSON.stringify({ message: "Data seeded successfully" }),
     };
   } else {
+    event.isBase64Encoded = false;
     return serverlessApp(event, context);
   }
 };

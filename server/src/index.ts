@@ -9,7 +9,7 @@ import courseRoutes from "./routes/course.route";
 import clerkRoutes from "./routes/clerk.route";
 import transactionRoutes from "./routes/transaction.routes";
 import userCourseProgressRoutes from "./routes/user-course-progress.routes";
-import serverless from "serverless-http";
+import serverlessExpress from "@vendia/serverless-express";
 import seed from "./seed/seedDynamodb";
 import {
   clerkMiddleware,
@@ -60,7 +60,7 @@ if (!isProduction) {
 
 // aws production enviroment serverless setupp
 
-const serverlessApp = serverless(app);
+const serverlessApp = serverlessExpress({ app });
 export const handler = async (event: any, context: any) => {
   if (event.action === "seed") {
     await seed();

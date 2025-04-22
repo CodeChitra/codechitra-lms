@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ChaptersSidebar from "./user/courses/[courseId]/chapters/[chapterId]/ChapterSideBar";
 import React from "react";
-export default function DashboardLayout({
+export default function privateLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -34,19 +34,19 @@ export default function DashboardLayout({
 
   return (
     <SidebarProvider>
-      <div className="dashboard">
+      <div className="private">
         <AppSidebar />
-        <div className="dashboard__content">
+        <div className="private__content">
           {courseId && <ChaptersSidebar />}
           <div
             className={cn(
-              "dashboard__main",
-              isCoursePage && "dashboard__main--not-course"
+              "private__main",
+              isCoursePage && "private__main--not-course"
             )}
             style={{ height: "100vh" }}
           >
             <Navbar isCoursePage={isCoursePage} />
-            <main className="dashboard__body">{children}</main>
+            <main className="private__body">{children}</main>
           </div>
         </div>
       </div>

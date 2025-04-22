@@ -12,7 +12,6 @@ const customBaseQuery = async (
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
     prepareHeaders: async (headers) => {
       const token = await window.Clerk?.session?.getToken();
-      console.log("TOKEN: ", token);
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
       }

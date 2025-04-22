@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={`${inter.className}`}>
+        <body className={`${inter.className} dark`}>
           <Providers>
             <Suspense fallback={null}>
               <div className="root-layout">{children}</div>

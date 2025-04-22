@@ -1,14 +1,13 @@
 "use client";
 import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { Bell, BookOpen } from "lucide-react";
+import { Library } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 function PublicNavbar() {
   const { user } = useUser();
   const userType = user?.publicMetadata?.userType as "student" | "teacher";
-  console.log("UserType: ", user?.publicMetadata?.userType);
   return (
     <nav className="public-navbar">
       <div className="public-navbar__container">
@@ -16,15 +15,15 @@ function PublicNavbar() {
           <Link href="/" className="public-navbar__brand">
             CODECHITRA
           </Link>
-          <div className="flex items-center gap-4">
-            <div className="relative group">
-              <Link href="/search" className="public-navbar__search-input">
-                <span className="hidden sm:inline">Search Courses</span>
-                <span className="sm:hidden">Search</span>
-              </Link>
-              <BookOpen className="public-navbar__search-icon" />
+        </div>
+        <div className="flex items-center gap-4">
+          <Link href="/search">
+            <div className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 group">
+              <Library className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+              <span className="hidden sm:inline">Explore Courses</span>
+              <span className="sm:hidden">Search</span>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div className="public-navbar__actions">
